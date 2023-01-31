@@ -14,7 +14,7 @@ INSERT INTO Cinema(nom, ville) VALUES('Pathé', 'Paris');
 INSERT INTO Cinema(nom, ville) VALUES ('Terrine', 'Marseille');
 INSERT INTO Cinema(nom, ville) VALUES ('Rilette', 'Le Mans');
 
-CREATE TABLE IF NOT EXISTS Sceance(id LONG PRIMARY KEY auto_increment, cinema_id INT, film_id INT, date_sceance DATE);
-INSERT INTO Sceance(cinema_id, film_id, date_sceance) VALUES ( 0, 1, '2023-02-15' );
-INSERT INTO Sceance(cinema_id, film_id, date_sceance) VALUES ( 1,3, '2022-02-01' );
-INSERT INTO Sceance(cinema_id, film_id, date_sceance) VALUES ( 1, 1, '2022-02-01' );
+CREATE TABLE IF NOT EXISTS Seance(id LONG PRIMARY KEY auto_increment, cinema_id INT, film_id INT, date_sceance DATE);
+INSERT INTO Seance(cinema_id, film_id, date_sceance) VALUES ( 0, 1, '2023-02-15' );
+INSERT INTO Seance(cinema_id, film_id, date_sceance) VALUES ( 1,3, '2022-02-01' );
+INSERT INTO Seance(cinema_id, film_id, date_sceance) VALUES ( 1, 1, '2022-02-01' );
