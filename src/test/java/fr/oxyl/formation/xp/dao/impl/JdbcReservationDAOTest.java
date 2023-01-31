@@ -1,6 +1,8 @@
 package fr.oxyl.formation.xp.dao.impl;
 
+import fr.oxyl.formation.xp.dao.ReservationDAO;
 import fr.oxyl.formation.xp.dao.SeanceDAO;
+import fr.oxyl.formation.xp.model.Reservation;
 import fr.oxyl.formation.xp.model.Seance;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,9 +17,9 @@ class JdbcReservationDAOTest {
 
     @Test
     void findAll() {
-        SeanceDAO seanceDAO = new JdbcSeanceDAO();
-        List<Seance> seance = seanceDAO.findAll();
+        ReservationDAO reservationDAO = new JdbcReservationDAO();
+        List<Reservation> reservations = reservationDAO.findAll();
 
-        assertThat(seance).isNotEmpty().hasSize(1);
+        assertThat(reservations).isNotEmpty().hasSize(1);
     }
 }

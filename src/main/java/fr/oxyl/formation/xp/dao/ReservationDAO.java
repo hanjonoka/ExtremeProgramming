@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ReservationDAO {
     public List<Reservation> findAll();
+
+    Reservation createReservation(Reservation r);
 }

@@ -4,6 +4,7 @@ public class Reservation {
     private long id;
     private long seance_id;
 
+    private int nb_places_reservation;
     public Reservation(long id, long seance_id, long client_id) {
         this.id = id;
         this.seance_id = seance_id;
@@ -13,6 +14,10 @@ public class Reservation {
     public Reservation(long seance_id, long client_id) {
         this.seance_id = seance_id;
         this.client_id = client_id;
+    }
+
+    public Reservation() {
+
     }
 
     public long getId() {
@@ -40,4 +45,12 @@ public class Reservation {
     }
 
     private long client_id;
+
+    public int getNb_places_reservation() {
+        return nb_places_reservation;
+    }
+
+    public void setNb_places_reservation(int nb_places_reservation) {
+        this.nb_places_reservation = nb_places_reservation;
+    }
 }
