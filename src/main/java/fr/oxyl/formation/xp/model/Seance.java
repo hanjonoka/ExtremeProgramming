@@ -4,21 +4,21 @@ import java.time.LocalDate;
 
 public class Seance {
     private long id;
-    private Cinema cinema;
-    private Film film;
+    private String cinema;
+    private String film;
     private LocalDate date;
 
     public Seance() {
     }
 
-    public Seance(long id, Cinema cinema, Film film, LocalDate date) {
+    public Seance(long id, String cinema, String film, LocalDate date) {
         this.id = id;
         this.cinema = cinema;
         this.film = film;
         this.date = date;
     }
 
-    public Seance(Cinema cinema, Film film, LocalDate date) {
+    public Seance(String cinema, String film, LocalDate date) {
         this.cinema = cinema;
         this.film = film;
         this.date = date;
@@ -32,20 +32,20 @@ public class Seance {
         this.id = id;
     }
 
-    public Cinema getCinema() {
+    public String getCinema() {
         return cinema;
     }
 
-    public void setCinema(Cinema cinema) {
+    public void setCinema(String cinema) {
         this.cinema = cinema;
     }
 
 
-    public Film getFilm() {
+    public String getFilm() {
         return film;
     }
 
-    public void setFilm(Film film) {
+    public void setFilm(String film) {
         this.film = film;
     }
 
