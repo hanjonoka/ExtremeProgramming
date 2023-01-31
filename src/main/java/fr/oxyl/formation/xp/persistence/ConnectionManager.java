@@ -19,7 +19,9 @@ import ch.qos.logback.classic.Logger;
 
 /**
  * Gere l'initialisation et les connexions de la base de donnees H2 en memoire.
+ * @deprecated spring-boot will use application.properties to init datasource, jdbc template, connection etc.
  */
+@Deprecated
 public class ConnectionManager {
 
     private static final String H2_DB_URL = "jdbc:h2:mem:film;DB_CLOSE_DELAY=-1";

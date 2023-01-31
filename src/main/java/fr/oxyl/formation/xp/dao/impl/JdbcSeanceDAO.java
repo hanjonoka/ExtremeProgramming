@@ -2,7 +2,6 @@ package fr.oxyl.formation.xp.dao.impl;
 
 import fr.oxyl.formation.xp.dao.SeanceDAO;
 import fr.oxyl.formation.xp.model.Seance;
-import fr.oxyl.formation.xp.persistence.ConnectionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,22 +13,20 @@ import java.util.Optional;
 @Repository
 public class JdbcSeanceDAO implements SeanceDAO {
 
-    @Autowired
-    private JdbcTemplate jdbctemplate;
+    private static final String ALL_SEANCES = "SELECT * FROM seance";
 
-    public JdbcSeanceDAO() {};
+    private final JdbcTemplate jdbctemplate;
+    private final SeanceRowMapper seanceRowMapper;
+
+    @Autowired
+    public JdbcSeanceDAO(JdbcTemplate jdbctemplate, SeanceRowMapper seanceRowMapper) {
+        this.jdbctemplate = jdbctemplate;
+        this.seanceRowMapper = seanceRowMapper;
+    }
 
     @Override
     public List<Seance> findAll() {
-        return jdbctemplate.query("SELECT * FROM seance", (rs, numrow) -> {
-            Seance seance = new Seance();
-            seance.setId(rs.getLong("id"));
-            seance.setCinema_id(rs.getLong("cinema_id"));
-            seance.setFilm_id(rs.getLong("film_id"));
-            seance.setDate(rs.getDate("date_seance").toLocalDate());
-            seance.setNb_places(rs.getInt("nb_places"));
-            return seance;
-        });
+        return jdbctemplate.query(ALL_SEANCES, seanceRowMapper); // TODO for others queries and DAO
 
     }
 
