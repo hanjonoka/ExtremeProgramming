@@ -1,6 +1,6 @@
 import axios from 'axios';
  
-const SEANCE_URI = 'http://localhost:8080/seance'
+const SEANCE_URI = process.env.REACT_APP_API_URI + '/seance';
  
 export function getAllSeances(){
 	return axios.get(SEANCE_URI);
@@ -11,7 +11,7 @@ export function getSeancesFromCinema(cinemaId){
 }
 
 export function getSeancesOfFilmFromCinema(filmId, cinemaId){
-	return axios.get(SEANCE_URI+"/"+cinemaId+"/"+filmId);
+	return axios.get(SEANCE_URI + "/" + cinemaId + "/" + filmId);
 }
 
 export function postSeance(seanceForm){
@@ -26,5 +26,5 @@ export function postSeance(seanceForm){
 }
 
 export function deleteSeance(seanceId){
-	return axios.delete(SEANCE_URI+"/"+seanceId);
+	return axios.delete(SEANCE_URI + "/" + seanceId);
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
  
-const RESERVATION_URI = 'http://localhost:8080/reservation'
+const RESERVATION_URI = process.env.REACT_APP_API_URI + '/reservation';
  
 export function getAllReservations(){
 	return axios.get(RESERVATION_URI);
@@ -17,5 +17,5 @@ export function postReservation(reservationForm){
 }
 
 export function deleteReservation(reservationId){
-	return axios.delete(RESERVATION_URI+"/"+reservationId);
+	return axios.delete(RESERVATION_URI + "/" + reservationId);
 }

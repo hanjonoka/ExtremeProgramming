@@ -1,9 +1,10 @@
-import { Card, CardContent, Typography } from "@mui/material"
-import { mockSeances } from "./mock/SeanceMock"
+import {Card, CardContent, Typography} from "@mui/material"
+import {mockSeances} from "./mock/SeanceMock"
 import SeanceList from "./SeanceList"
 
 export default function FilmCard(props) {
     return (
+        <!-- FIXME Prevent undefined cases -->
         <Card variant="outlined">
             <CardContent>
                 <Typography variant="h4" gutterBottom>
@@ -16,4 +17,4 @@ export default function FilmCard(props) {
             </CardContent>
         </Card>
     )
-  }
+}

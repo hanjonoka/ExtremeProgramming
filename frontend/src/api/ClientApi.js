@@ -1,6 +1,6 @@
 import axios from 'axios';
  
-const CLIENT_URI = 'http://localhost:8080/client'
+const CLIENT_URI = process.env.REACT_APP_API_URI + '/client';
  
 export function getAllClients(){
 	return axios.get(CLIENT_URI);
@@ -17,5 +17,5 @@ export function postClient(clientForm){
 }
 
 export function deleteClient(clientId){
-	return axios.delete(CLIENT_URI+"/"+clientId);
+	return axios.delete(CLIENT_URI + "/" + clientId);
 }
