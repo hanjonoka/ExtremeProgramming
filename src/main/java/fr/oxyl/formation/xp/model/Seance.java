@@ -4,24 +4,28 @@ import java.time.LocalDate;
 
 public class Seance {
     private long id;
-    private String cinema;
-    private String film;
+    private long cinema_id;
+    private long film_id;
     private LocalDate date;
+    private int nb_places;
 
     public Seance() {
     }
 
-    public Seance(long id, String cinema, String film, LocalDate date) {
+    public Seance(long id, long cinema_id, long film_id, LocalDate date, int nb_places) {
         this.id = id;
-        this.cinema = cinema;
-        this.film = film;
+        this.cinema_id = cinema_id;
+        this.film_id = film_id;
         this.date = date;
+        this.nb_places = nb_places;
     }
 
-    public Seance(String cinema, String film, LocalDate date) {
-        this.cinema = cinema;
-        this.film = film;
+
+    public Seance(long cinema_id, long film_id, LocalDate date, int nb_places) {
+        this.cinema_id = cinema_id;
+        this.film_id = film_id;
         this.date = date;
+        this.nb_places = nb_places;
     }
 
     public long getId() {
@@ -32,21 +36,20 @@ public class Seance {
         this.id = id;
     }
 
-    public String getCinema() {
-        return cinema;
+    public long getCinema_id() {
+        return cinema_id;
     }
 
-    public void setCinema(String cinema) {
-        this.cinema = cinema;
+    public void setCinema_id(long cinema_id) {
+        this.cinema_id = cinema_id;
     }
 
-
-    public String getFilm() {
-        return film;
+    public long getFilm_id() {
+        return film_id;
     }
 
-    public void setFilm(String film) {
-        this.film = film;
+    public void setFilm_id(long film_id) {
+        this.film_id = film_id;
     }
 
     public LocalDate getDate() {
@@ -57,12 +60,20 @@ public class Seance {
         this.date = date;
     }
 
+    public int getNb_places() {
+        return nb_places;
+    }
+
+    public void setNb_places(int nb_places) {
+        this.nb_places = nb_places;
+    }
+
     @Override
     public String toString() {
         return "Seance{" +
                 "id=" + id +
-                ", cinema=" + cinema +
-                ", film=" + film +
+                ", cinema=" + cinema_id +
+                ", film=" + film_id +
                 ", date=" + date +
                 '}';
     }

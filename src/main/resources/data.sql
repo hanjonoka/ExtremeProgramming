@@ -14,7 +14,12 @@ INSERT INTO Cinema(nom, ville) VALUES('Pathé', 'Paris');
 INSERT INTO Cinema(nom, ville) VALUES ('Terrine', 'Marseille');
 INSERT INTO Cinema(nom, ville) VALUES ('Rilette', 'Le Mans');
 
-CREATE TABLE IF NOT EXISTS Seance(id LONG PRIMARY KEY auto_increment, cinema_id INT, film_id INT, date_seance DATE);
-INSERT INTO Seance(cinema_id, film_id, date_seance) VALUES ( 0, 1, '2023-02-15' );
-INSERT INTO Seance(cinema_id, film_id, date_seance) VALUES ( 1,3, '2022-02-01' );
-INSERT INTO Seance(cinema_id, film_id, date_seance) VALUES ( 1, 1, '2022-02-01' );
+CREATE TABLE IF NOT EXISTS Seance(id LONG PRIMARY KEY auto_increment, cinema_id LONG, film_id LONG, date_seance DATE, nb_places INT);
+INSERT INTO Seance(cinema_id, film_id, date_seance, nb_places) VALUES ( 0, 1, '2023-02-15', 200 );
+INSERT INTO Seance(cinema_id, film_id, date_seance, nb_places) VALUES ( 1,3, '2022-02-01', 150 );
+INSERT INTO Seance(cinema_id, film_id, date_seance,nb_places) VALUES ( 1, 1, '2022-02-01', 100 );
+
+CREATE TABLE IF NOT EXISTS Reservation(id LONG PRIMARY KEY auto_increment, seance_id LONG, client_id LONG, nb_places_reservation INT);
+INSERT INTO Reservation(seance_id, client_id, nb_places_reservation) VALUES ( 0, 0, 2 );
+INSERT INTO Reservation(seance_id, client_id, nb_places_reservation) VALUES ( 0, 1, 4 );
+INSERT INTO Reservation(seance_id, client_id, nb_places_reservation) VALUES ( 1, 0, 3 );
