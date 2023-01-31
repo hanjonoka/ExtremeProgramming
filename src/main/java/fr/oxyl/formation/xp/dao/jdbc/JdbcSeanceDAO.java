@@ -1,4 +1,4 @@
-package fr.oxyl.formation.xp.dao.impl;
+package fr.oxyl.formation.xp.dao.jdbc;
 
 import fr.oxyl.formation.xp.dao.SeanceDAO;
 import fr.oxyl.formation.xp.model.Seance;
