@@ -1,13 +1,11 @@
-import FilmList from "./FilmList";
-import {mockFilms} from "./mock/FilmMock";
-import SeanceList from "./SeanceList";
-import { mockSeances } from "./mock/SeanceMock";
+import CinemaList from "./CinemaList";
+import { mockCinemas } from "./mock/CinemaMock";
 
 function App() {
   return (
     <>
       <h1> App de groupe 2 - red team </h1>
-      <SeanceList seances={mockSeances}/>
+      <CinemaList cinemas={mockCinemas}/>
     </>
   );
 }

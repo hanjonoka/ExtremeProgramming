@@ -6,6 +6,10 @@ export function getAllFilms(){
 	return axios.get(FILM_URI);
 }
 
+export function getFilmsInCinema(cinemaId){
+	return axios.get(FILM_URI+"/"+cinemaId);
+}
+
 export function postFilm(filmForm){
     // check format
 	return axios.post(FILM_URI, null, {

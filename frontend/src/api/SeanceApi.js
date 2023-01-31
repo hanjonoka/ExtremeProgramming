@@ -6,7 +6,13 @@ export function getAllSeances(){
 	return axios.get(SEANCE_URI);
 }
 
+export function getAllSeancesFromCinema(cinemaId){
+	return axios.get(SEANCE_URI+"/"+cinemaId);
+}
 
+export function getAllSeancesOfFilmFromCinema(filmId, cinemaId){
+	return axios.get(SEANCE_URI+"/"+cinemaId+"/"+filmId);
+}
 
 export function postSeance(seanceForm){
 	return axios.post(SEANCE_URI, null, {

@@ -1,8 +1,8 @@
 import SeanceCard from "./SeanceCard";
 
-export default function SeanceList({seances}) {
+export default function SeanceList(props) {
     
-    return seances.map((seance)=> {
+    return props.seances.map((seance)=> {
         return <SeanceCard key={seance.id} seance={seance} />
     })
 
