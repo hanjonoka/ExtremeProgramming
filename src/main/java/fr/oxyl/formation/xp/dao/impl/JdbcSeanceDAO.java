@@ -15,7 +15,15 @@ public class JdbcSeanceDAO implements SeanceDAO {
 
     @Override
     public List<Seance> findAll() {
-        return null;
+        return jdbcTemplate.query("SELECT * FROM Seance", (rs, numrow) -> {
+            Seance seance = new Seance();
+            seance.setId(rs.getInt("id"));
+            seance.setCinema(rs.getString("cinema"));
+            seance.setFilm(rs.getString("film"));
+            seance.setDate(rs.getDate("date").toLocalDate());
+            return seance;
+        });
+
     }
 
 
