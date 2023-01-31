@@ -21,3 +21,5 @@ INSERT INTO Seance(cinema_id, film_id, date_seance,nb_places) VALUES ( 1, 1, '20
 
 CREATE TABLE IF NOT EXISTS Reservation(id LONG PRIMARY KEY auto_increment, seance_id LONG, client_id LONG, nb_places_reservation INT);
 INSERT INTO Reservation(seance_id, client_id, nb_places_reservation) VALUES ( 0, 0, 2 );
+INSERT INTO Reservation(seance_id, client_id, nb_places_reservation) VALUES ( 0, 1, 4 );
+INSERT INTO Reservation(seance_id, client_id, nb_places_reservation) VALUES ( 1, 0, 3 );
