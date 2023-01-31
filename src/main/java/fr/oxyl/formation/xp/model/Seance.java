@@ -7,21 +7,25 @@ public class Seance {
     private String cinema;
     private String film;
     private LocalDate date;
+    private int nb_places;
 
     public Seance() {
     }
 
-    public Seance(long id, String cinema, String film, LocalDate date) {
+    public Seance(long id, String cinema, String film, LocalDate date, int nb_places) {
         this.id = id;
         this.cinema = cinema;
         this.film = film;
         this.date = date;
+        this.nb_places = nb_places;
     }
 
-    public Seance(String cinema, String film, LocalDate date) {
+
+    public Seance(String cinema, String film, LocalDate date, int nb_places) {
         this.cinema = cinema;
         this.film = film;
         this.date = date;
+        this.nb_places = nb_places;
     }
 
     public long getId() {
@@ -55,6 +59,14 @@ public class Seance {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public int getNb_places() {
+        return nb_places;
+    }
+
+    public void setNb_places(int nb_places) {
+        this.nb_places = nb_places;
     }
 
     @Override

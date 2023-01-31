@@ -22,6 +22,7 @@ public class JdbcSeanceDAO implements SeanceDAO {
             seance.setCinema(rs.getString("cinema"));
             seance.setFilm(rs.getString("film"));
             seance.setDate(rs.getDate("date").toLocalDate());
+            seance.setNb_places(rs.getInt("nb_places"));
             return seance;
         });
 
