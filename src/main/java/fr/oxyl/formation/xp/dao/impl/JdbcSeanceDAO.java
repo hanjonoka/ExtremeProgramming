@@ -19,9 +19,9 @@ public class JdbcSeanceDAO implements SeanceDAO {
         return jdbctemplate.query("SELECT * FROM seance", (rs, numrow) -> {
             Seance seance = new Seance();
             seance.setId(rs.getLong("id"));
-            seance.setCinema(rs.getString("cinema"));
-            seance.setFilm(rs.getString("film"));
-            seance.setDate(rs.getDate("date").toLocalDate());
+            seance.setCinema(rs.getString("cinema_id"));
+            seance.setFilm(rs.getString("film_id"));
+            seance.setDate(rs.getDate("date_seance").toLocalDate());
             seance.setNb_places(rs.getInt("nb_places"));
             return seance;
         });
