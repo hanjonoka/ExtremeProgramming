@@ -1,17 +1,23 @@
 import { compose } from "@mui/system";
 import { useEffect, useState } from "react";
+import { getAllSeances } from "./api/DataApi";
 import CinemaList from "./CinemaList";
 import FilmList from "./FilmList";
 import { mockSeances } from "./mock/DataMock";
 
 function App() {
-  // const [cinemaFirst, setCinemaFirst] = useState(true);
-  //   useEffect(()=> {
-      
-  //   })
+  const [seances, setSeances] = useState([]);
+    useEffect(() => {
+      getAllSeances().then(reponse => {
+          setSeances(reponse.data);
+      }).catch(err => {
+          console.log(err);
+      })
+      }, [])
+
     const cinemas = mockSeances.map((v)=> v.cinema).filter((value, index, self) => index === self.findIndex((t) => (t.id === value.id)));
     const films = mockSeances.map((v)=> v.film).filter((value, index, self) => index === self.findIndex((t) => (t.id === value.id)));
-    const seances = mockSeances;
+    // const seances = mockSeances;
     
     let cinemaFirst = true;
 
