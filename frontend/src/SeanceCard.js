@@ -8,13 +8,13 @@ export default function SeanceCard(props) {
                     date : {props.seance.date}
                 </Typography>
                 <Typography variant="body1">
-                    {props.seance.film.titre}
+                    {props.seance.filmDTO.titre}
                 </Typography>
                 <Typography variant="body1">
-                    places disponibes : {props.seance.nombrePlaces}
+                    places disponibes : {props.seance.nb_places}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                    projeté à {props.seance.cinema.nom}
+                    projeté à {props.seance.cinemaDTO.nom}
                 </Typography>
                 
             </CardContent>
