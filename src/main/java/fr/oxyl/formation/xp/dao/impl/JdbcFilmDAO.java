@@ -3,11 +3,14 @@ package fr.oxyl.formation.xp.dao.impl;
 import fr.oxyl.formation.xp.dao.FilmDAO;
 import fr.oxyl.formation.xp.model.Film;
 import fr.oxyl.formation.xp.model.Reservation;
+import fr.oxyl.formation.xp.model.Seance;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class JdbcFilmDAO implements FilmDAO {
@@ -26,5 +29,23 @@ public class JdbcFilmDAO implements FilmDAO {
 
             return film;
         });
+    }
+
+    @Override
+    public Optional<Film> findById(long id) {
+        try {
+            Film film = jdbctemplate.queryForObject("SELECT * FROM Film WHERE id=?", (rs, rownum) -> {
+                Film s = new Film(
+                        rs.getLong("id"),
+                        rs.getString("titre"),
+                        rs.getInt("duree"),
+                        rs.getString("realisateur")
+                );
+                return s;
+            }, id);
+            return Optional.of(film);
+        }catch(EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 }
