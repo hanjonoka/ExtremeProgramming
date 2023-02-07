@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from "@mui/material"
 import FilmList from "./FilmList"
 import SeanceList from "./SeanceList";
-import { mockFilms } from "./mock/FilmMock";
+import { mockFilms } from "../../mock/FilmMock";
 
 export default function CinemaCard(props) {
     const films = props.seances.map((v)=> v.filmDTO)

@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from "@mui/material"
-import { mockSeances } from "./mock/SeanceMock"
+import { mockSeances } from "../../mock/SeanceMock"
 import SeanceList from "./SeanceList"
 import CinemaList from "./CinemaList";
 
