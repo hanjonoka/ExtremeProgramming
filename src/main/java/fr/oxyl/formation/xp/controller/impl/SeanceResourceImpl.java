@@ -1,7 +1,7 @@
 package fr.oxyl.formation.xp.controller.impl;
 
 
-import fr.oxyl.formation.xp.controller.SeanceRessource;
+import fr.oxyl.formation.xp.controller.SeanceResource;
 import fr.oxyl.formation.xp.dto.ReservationDTO;
 import fr.oxyl.formation.xp.dto.SeanceDTO;
 import fr.oxyl.formation.xp.exception.ControllerException;
@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/seance")
-public class SeanceRessourceImpl implements SeanceRessource {
+public class SeanceResourceImpl implements SeanceResource {
 
     @Autowired
     SeanceService seanceService;
@@ -34,31 +34,7 @@ public class SeanceRessourceImpl implements SeanceRessource {
         return ResponseEntity.ok(seanceDTOS);
     }
 
-    @Override
-    @PostMapping("/reserver")
-    public ResponseEntity<ReservationDTO> reserverSeance(ReservationForm reservationForm) throws ControllerException {
-        try {
-            ReservationDTO r = reservationService.addReservation(reservationForm);
-            if(r!=null){
-                return ResponseEntity.ok(r);
-            }else{
-                return ResponseEntity.status(500).build();
-            }
-        } catch (ServiceException e) {
-            e.printStackTrace();
-            throw new ControllerException();
-        }
-    }
 
-    @Override
-    public ResponseEntity<List<ReservationDTO>> getAllReservations() throws ControllerException {
-        try {
-            return ResponseEntity.ok(reservationService.getAllReservations());
-        }catch (ServiceException e) {
-            e.printStackTrace();
-            throw new ControllerException();
-        }
-    }
 
 
 }

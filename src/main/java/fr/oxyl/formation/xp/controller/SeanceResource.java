@@ -12,10 +12,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin(origins="http://localhost:3000")
-public interface SeanceRessource {
+public interface SeanceResource {
     ResponseEntity<List<SeanceDTO>> getAllSeanceFutur() throws ControllerException;
-    @Transactional
-    ResponseEntity<ReservationDTO> reserverSeance(@Valid ReservationForm reservationForm) throws ControllerException;
-
-    ResponseEntity<List<ReservationDTO>> getAllReservations() throws ControllerException;
 }
