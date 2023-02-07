@@ -17,6 +17,8 @@ public class ReservationForm {
         this.nb_places = nb_places;
     }
 
+    public ReservationForm(){}
+
     public long getSeance_id() {
         return seance_id;
     }

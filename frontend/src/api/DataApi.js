@@ -9,3 +9,7 @@ export function getAllSeances(){
 export function getSeanceById(id) {
 	return axios.get(URI+"seance/byId?id="+id);
 }
+
+export function submitReservation(reservation) {
+	return axios.post(URI+"reservation/reserver",reservation);
+}

@@ -9,11 +9,9 @@ import fr.oxyl.formation.xp.service.ReservationService;
 import fr.oxyl.formation.xp.service.SeanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,7 +24,7 @@ public class ReservationResourceImpl implements ReservationResource {
 
     @Override
     @PostMapping("/reserver")
-    public ResponseEntity<ReservationDTO> reserverSeance(ReservationForm reservationForm) throws ControllerException {
+    public ResponseEntity<ReservationDTO> reserverSeance(@RequestBody @Valid ReservationForm reservationForm) throws ControllerException {
         try {
             ReservationDTO r = reservationService.addReservation(reservationForm);
             if(r!=null){
