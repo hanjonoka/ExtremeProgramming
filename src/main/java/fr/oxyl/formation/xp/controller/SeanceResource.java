@@ -14,4 +14,5 @@ import java.util.List;
 @CrossOrigin(origins="http://localhost:3000")
 public interface SeanceResource {
     ResponseEntity<List<SeanceDTO>> getAllSeanceFutur() throws ControllerException;
+    ResponseEntity<SeanceDTO> getById(long id) throws ControllerException;
 }

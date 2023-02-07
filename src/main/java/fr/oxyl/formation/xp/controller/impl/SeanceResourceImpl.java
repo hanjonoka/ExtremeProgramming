@@ -34,7 +34,16 @@ public class SeanceResourceImpl implements SeanceResource {
         return ResponseEntity.ok(seanceDTOS);
     }
 
-
+    @Override
+    @GetMapping("/byId")
+    public ResponseEntity<SeanceDTO> getById(long id) throws ControllerException {
+        try {
+            return ResponseEntity.ok(seanceService.findById(id));
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            throw new ControllerException();
+        }
+    }
 
 
 }

@@ -14,6 +14,13 @@ public class SeanceMapper {
     public static SeanceDTO convertSeanceToSeanceDTO(Seance seance) {
         return new SeanceDTO(seance.getId(), seance.getCinema_id(), seance.getFilm_id(), seance.getDate(), seance.getNb_places());
     }
+
+    public static SeanceDTO convertSeanceCinemaFilmToSeanceDTO(Seance seance, Cinema cinema, Film film) {
+        SeanceDTO sdto = convertSeanceToSeanceDTO(seance);
+        sdto.setCinemaDTO(new CinemaDTO(cinema.getId(), cinema.getNom(), cinema.getVille()));
+        sdto.setFilmDTO(new FilmDTO(film.getId(), film.getTitre(), film.getDuree(), film.getRealisateur()));
+        return sdto;
+    }
     public static List<SeanceDTO> convertSeancesCinemasFilmsToSeancesDTO(
             List<Seance> seances, List<Cinema> cinemas, List<Film> films) {
         List<SeanceDTO> seanceDTOS = seances.stream().map(SeanceMapper::convertSeanceToSeanceDTO).collect(Collectors.toList());
