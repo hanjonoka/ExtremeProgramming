@@ -15,8 +15,8 @@ function App() {
       })
       }, [])
 
-    const cinemas = mockSeances.map((v)=> v.cinema).filter((value, index, self) => index === self.findIndex((t) => (t.id === value.id)));
-    const films = mockSeances.map((v)=> v.film).filter((value, index, self) => index === self.findIndex((t) => (t.id === value.id)));
+    const cinemas = seances.map((v)=> v.cinemaDTO).filter((value, index, self) => index === self.findIndex((t) => (t.id === value.id)));
+    const films = seances.map((v)=> v.filmDTO).filter((value, index, self) => index === self.findIndex((t) => (t.id === value.id)));
     // const seances = mockSeances;
     
     let cinemaFirst = true;

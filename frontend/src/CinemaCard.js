@@ -4,7 +4,7 @@ import SeanceList from "./SeanceList";
 import { mockFilms } from "./mock/FilmMock";
 
 export default function CinemaCard(props) {
-    const films = props.seances.map((v)=> v.film)
+    const films = props.seances.map((v)=> v.filmDTO)
             .filter((value, index, self) => index === self.findIndex((t) => (t.id === value.id)));
     return (
         <Card variant="outlined">
@@ -15,7 +15,7 @@ export default function CinemaCard(props) {
                 <Typography variant="body1">
                     situé à {props.cinema.ville}
                 </Typography>
-                {props.cinemaFirst ? <FilmList films={films} cinemaFirst={props.cinemaFirst} seances={props.seances.filter((v) => v.cinema.id === props.cinema.id)}></FilmList> : <SeanceList seances={props.seances.filter((v) => v.cinema.id === props.cinema.id)}></SeanceList>}
+                {props.cinemaFirst ? <FilmList films={films} cinemaFirst={props.cinemaFirst} seances={props.seances.filter((v) => v.cinemaDTO.id === props.cinema.id)}></FilmList> : <SeanceList seances={props.seances.filter((v) => v.cinemaDTO.id === props.cinema.id)}></SeanceList>}
                 
             </CardContent>
         </Card>
