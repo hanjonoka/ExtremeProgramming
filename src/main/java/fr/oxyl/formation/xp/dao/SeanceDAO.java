@@ -8,6 +8,9 @@ import java.util.Optional;
 public interface SeanceDAO {
 
     public List<Seance> findAll();
+
+    public List<Seance> findAllFuture();
+
     public Optional<Seance> findById(long id);
 
 }

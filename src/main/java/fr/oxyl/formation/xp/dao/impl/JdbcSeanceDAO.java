@@ -8,6 +8,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +33,22 @@ public class JdbcSeanceDAO implements SeanceDAO {
             return seance;
         });
 
+    }
+
+    @Override
+    public List<Seance> findAllFuture() {
+
+        LocalDateTime now = LocalDateTime.now();
+        String formattedDate = now.format(DateTimeFormatter.ISO_DATE);
+        return jdbctemplate.query("SELECT * FROM seance WHERE date_seance>?", (rs, numrow) -> {
+            Seance seance = new Seance();
+            seance.setId(rs.getLong("id"));
+            seance.setCinema_id(rs.getLong("cinema_id"));
+            seance.setFilm_id(rs.getLong("film_id"));
+            seance.setDate(rs.getDate("date_seance").toLocalDate());
+            seance.setNb_places(rs.getInt("nb_places"));
+            return seance;
+        },formattedDate);
     }
 
     @Override
