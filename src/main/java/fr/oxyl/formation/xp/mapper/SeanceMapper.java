@@ -25,7 +25,7 @@ public class SeanceMapper {
             }
             for (Film film : films) {
                 if (film.getId()==seanceDTO.getFilm_id()) {
-                    seanceDTO.setfIlmDTO(new FilmDTO(film.getId(), film.getTitre(), film.getDuree(), film.getRealisateur()));
+                    seanceDTO.setFilmDTO(new FilmDTO(film.getId(), film.getTitre(), film.getDuree(), film.getRealisateur()));
                 }
             }
         }

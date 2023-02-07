@@ -62,17 +62,17 @@ public class SeanceDTO {
         this.cinemaDTO = cinemaDTO;
     }
 
-    public FilmDTO getfIlmDTO() {
-        return fIlmDTO;
+    public FilmDTO getFilmDTO() {
+        return filmDTO;
     }
 
-    public void setfIlmDTO(FilmDTO fIlmDTO) {
-        this.fIlmDTO = fIlmDTO;
+    public void setFilmDTO(FilmDTO filmDTO) {
+        this.filmDTO = filmDTO;
     }
 
     private long film_id;
     private LocalDate date;
     private int nb_places;
     private CinemaDTO cinemaDTO;
-    private FilmDTO fIlmDTO;
+    private FilmDTO filmDTO;
 }

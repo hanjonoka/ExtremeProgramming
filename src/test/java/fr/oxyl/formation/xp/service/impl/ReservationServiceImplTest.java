@@ -17,16 +17,12 @@ class ReservationServiceImplTest {
 
     @Autowired
     private ReservationService reservationService;
-
     @Test
-    void getAllReservation() throws ServiceException {
-        List<ReservationDTO> reservationDTOS = reservationService.getAllReservations();
-        assertThat(reservationDTOS).isNotEmpty().hasSize(3);
-    }
-
-    @Test
-    void addReservation() throws ServiceException {
+    void test_addReservation_and_getAllReservation() throws ServiceException {
+        //Testing the add function
         reservationService.addReservation(new ReservationForm(1,1,5));
+
+        //Testing the get function
         List<ReservationDTO> reservationDTOS = reservationService.getAllReservations();
         assertThat(reservationDTOS).isNotEmpty().hasSize(4);
     }
