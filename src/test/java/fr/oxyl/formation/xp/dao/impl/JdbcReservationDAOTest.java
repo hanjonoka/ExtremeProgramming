@@ -27,16 +27,16 @@ class JdbcReservationDAOTest {
 
     @Test
     void findBySeance() {
-        List<Reservation> reservations = reservationDAO.findBySeance(0);
+        List<Reservation> reservations = reservationDAO.findBySeance(1);
         assertThat(reservations).isNotEmpty().hasSize(2);
     }
 
     @Test
     void getNbPlacesReserveesBySeance() {
-        int nb_places = reservationDAO.getNbPlacesReserveesBySeance(0);
+        int nb_places = reservationDAO.getNbPlacesReserveesBySeance(1);
         assertThat(nb_places).isEqualTo(6);
 
         nb_places = reservationDAO.getNbPlacesReserveesBySeance(2);
-        assertThat(nb_places).isEqualTo(0);
+        assertThat(nb_places).isEqualTo(3);
     }
 }
